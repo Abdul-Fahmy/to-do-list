@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function Login() {
   const { users } = USERS;
   const [error, setErorr] = useState<string>("");
+  const [rememberMe, setRememberMe] = useState<boolean>(false)
   const navigate = useNavigate();
 
   function handleSubmit(values: { email: string; password: string }) {
@@ -21,10 +22,18 @@ export default function Login() {
       );
 
       if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
+        if (rememberMe) {
+          localStorage.setItem("user", JSON.stringify(user));
         toast.success("Login successful", { id: toastId });
         setErorr("");
         navigate("/");
+        }else{
+          sessionStorage.setItem('user',JSON.stringify(user))
+          toast.success("Login successful", { id: toastId });
+        setErorr("");
+        navigate("/");
+        }
+        
       } else {
         toast.error("Invalid email or password", { id: toastId });
         setErorr("Invalid email or password");
@@ -83,12 +92,20 @@ export default function Login() {
           </div>
           {error && <p className="text-red-400 mt-1 text-sm">*{error}</p>}
 
-          <button
+          <div className="flex items-center">
+            <div className="flex items-center gap-1">
+            <input type="checkbox" checked={rememberMe} onChange={()=>{
+              setRememberMe(!rememberMe)
+            }} />
+            <span>remember me</span>
+            </div>
+            <button
             className="btn ml-auto bg-blue-500 hover:bg-blue-400"
             type="submit"
           >
             Sign in
           </button>
+          </div>
         </form>
       </div>
     </>

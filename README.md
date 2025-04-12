@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+## To-Do-List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a multi-user To-Do List application built with React and TypeScript, designed to help users manage their tasks efficiently. Each user can create multiple to-do lists, and each list contains its own set of tasks. The app supports user authentication and dynamic task management. It’s structured to be scalable and easy to maintain.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Authentication
 
-## Expanding the ESLint configuration
+- User login with email and password
+- Authentication using users.json
+- "Remember Me" checkbox for persistent login
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Home Screen
 
-- Configure the top-level `parserOptions` property like this:
+- Display all to-do lists for the logged-in user
+- Show percentage completion of each to-do list
+- Create new to-do lists
+- User badge with sign-out option
+- Progress bar for list completion
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### To-Do List View
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- View tasks within a specific to-do list
+- Add new tasks
+- Edit task text
+- Mark tasks as completed
+- Delete tasks
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Keyboard Shortcuts
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Ctrl/Cmd + N**: Add new task
+- **Arrow Up/Down**: Navigate tasks
+- **Space**: Mark task as complete
+- **E or Enter**: Edit task
+- **Delete**: Delete task
+
+### Data Management
+
+- Save to-do lists in browser storage (LocalStorage and SessionStorage)
+
+### Tech Stack
+
+- React
+- TypeScript
+- Tailwind CSS
+- react-hot-toast
+- react-router-dom
+
+## Folder Structure
+
+/src
+/assets
+/components
+/data
+/pages
+/types
+index.css
+App.tsx
+index.tsx
+
+## Contributing
+
+Contributions are welcome! Please open issues and submit pull requests.
+
+## Contact
+
+Abdulrahman Fahmy – @Abdul-Fahmy – abdelrhmanfahmy69@gmail.com
+
+## License
+
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.

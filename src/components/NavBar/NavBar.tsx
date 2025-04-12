@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import UserImage from '../../assets/user.png'
 
 export default function NavBar() {
-  const token = localStorage.getItem("user");
+  const token = localStorage.getItem("user") || sessionStorage.getItem('user');
   const user = token ? JSON.parse(token) : null;
 
   const [isUserHidden, setIsUserHidden] = useState("hidden");
@@ -55,8 +56,9 @@ export default function NavBar() {
                       handleUserClose();
                     }
                   }}
-                  className="cursor-pointer w-8 h-8  rounded-full bg-gray-700 text-white flex justify-center items-center relative"
+                  className="cursor-pointer w-8 h-8  rounded-full  text-white flex justify-center items-center relative"
                 >
+                  <img className="w-full" src={UserImage} alt="" />
                   <div
                     className={`absolute bg-gray-500 top-10 z-50 w-52 right-0 md:right-0 rounded-md ${isUserHidden} `}
                   >

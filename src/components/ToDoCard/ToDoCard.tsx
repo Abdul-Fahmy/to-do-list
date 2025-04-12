@@ -15,7 +15,7 @@ export default function ToDoCard({ task }: { task: TodoList }) {
     }
   }, []);
 
-  // Save to localStorage only when todoList is initialized
+  // Save to localStorage when todoList is initialized
   useEffect(() => {
     if (list !== null) {
       localStorage.setItem("todoLists", JSON.stringify(list));
@@ -43,7 +43,7 @@ export default function ToDoCard({ task }: { task: TodoList }) {
           }}
           className="btn bg-red-500 hover:bg-red-400 mt-3 ml-auto"
         >
-          Remove
+          Delete
         </button>
       </div>
     </>

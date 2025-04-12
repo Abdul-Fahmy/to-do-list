@@ -78,7 +78,7 @@ export default function ToDoDetails() {
   };
   const handleEdit = (todo: TodoItem) => {
     setEditingTodo(todo);
-    setTodoText(todo.text); // Populate input with task text
+    setTodoText(todo.text); 
   };
 
   const saveEdit = () => {
@@ -97,7 +97,7 @@ export default function ToDoDetails() {
       setTodoList(updatedList);
       setEditingTodo(null); // Reset editing state
       setTodoText(""); // Clear the input
-      setError("");
+      setError(""); 
     } else {
       setError("Please enter a valid task.");
     }
@@ -125,7 +125,7 @@ export default function ToDoDetails() {
           {editingTodo ? (
             <button
               onClick={saveEdit}
-              className="btn bg-green-500 hover:bg-green-400 mt-2"
+              className="btn bg-green-600 hover:bg-green-500 mt-2"
             >
               Save
             </button>
@@ -156,7 +156,7 @@ export default function ToDoDetails() {
                 <div className="flex items-center gap-3">
                   <input
                     type="checkbox"
-                    className="cursor-pointer"
+                    className="cursor-pointer accent-green-600"
                     checked={todo.completed}
                     onChange={() => toggleCompleted(todo)}
                   />
