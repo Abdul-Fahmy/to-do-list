@@ -5,15 +5,21 @@ import { useEffect, useState } from "react";
 
 export default function ToDoCard({ task }: { task: TodoList }) {
   const [list, setList] = useState<TodoList[]>([]);
+  // Load from localStorage only once
   useEffect(() => {
     const storedList = localStorage.getItem("todoLists");
     if (storedList) {
       setList(JSON.parse(storedList));
+    } else {
+      setList([]);
     }
   }, []);
 
+  // Save to localStorage only when todoList is initialized
   useEffect(() => {
-    localStorage.setItem("todoLists", JSON.stringify(list));
+    if (list !== null) {
+      localStorage.setItem("todoLists", JSON.stringify(list));
+    }
   }, [list]);
   function handleRemoveList(listId: string) {
     setList((prevLists) => prevLists.filter((list) => list.id !== listId));
