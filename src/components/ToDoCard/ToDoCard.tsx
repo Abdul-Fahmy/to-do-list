@@ -4,9 +4,7 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import { useEffect, useState } from "react";
 
 export default function ToDoCard({ task }: { task: TodoList }) {
-  const [list, setList] = useState<TodoList[]>(
-    JSON.parse(localStorage.getItem("todoLists")!)
-  );
+  const [list, setList] = useState<TodoList[]>([]);
   useEffect(() => {
     const storedList = localStorage.getItem("todoLists");
     if (storedList) {
