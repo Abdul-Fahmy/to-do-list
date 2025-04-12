@@ -9,11 +9,13 @@ export default function Home() {
 
   // Load from localStorage only once
   useEffect(() => {
-    const storedList = localStorage.getItem("todoLists");
-    if (storedList) {
-      setTodoList(JSON.parse(storedList));
-    } else {
-      setTodoList([]);
+    if (typeof window !== "undefined") {
+      const storedList = localStorage.getItem("todoLists");
+      if (storedList) {
+        setTodoList(JSON.parse(storedList));
+      } else {
+        setTodoList([]);
+      }
     }
   }, []);
 
