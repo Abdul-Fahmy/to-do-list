@@ -4,7 +4,7 @@ import { TodoList } from "../../types/types";
 
 export default function Home() {
   const [todoList, setTodoList] = useState<TodoList[]>(
-    JSON.parse(localStorage.getItem("todoLists")!) || []
+    JSON.parse(localStorage.getItem("todoLists")!)
   );
   const [newListTitle, setNewListTitle] = useState<string>("");
   const [error, setError] = useState<string>("");
