@@ -3,7 +3,7 @@ import ToDoCard from "../../components/ToDoCard/ToDoCard";
 import { TodoList } from "../../types/types";
 
 export default function Home() {
-  const [todoList, setTodoList] = useState<TodoList[] | null>(null);
+  const [todoList, setTodoList] = useState<TodoList[] | null>([]);
   const [newListTitle, setNewListTitle] = useState<string>("");
   const [error, setError] = useState<string>("");
 
