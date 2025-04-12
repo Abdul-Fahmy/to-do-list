@@ -11,6 +11,13 @@ export default function ToDoDetails() {
   const { id } = useParams();
 
   useEffect(() => {
+    const storedList = localStorage.getItem("todoLists");
+    if (storedList) {
+      setTodoList(JSON.parse(storedList));
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("todoLists", JSON.stringify(todoList));
   }, [todoList]);
 
