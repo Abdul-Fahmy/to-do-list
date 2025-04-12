@@ -3,19 +3,17 @@ import ToDoCard from "../../components/ToDoCard/ToDoCard";
 import { TodoList } from "../../types/types";
 
 export default function Home() {
-  const [todoList, setTodoList] = useState<TodoList[] | null>([]);
+  const [todoList, setTodoList] = useState<TodoList[] | null>(null);
   const [newListTitle, setNewListTitle] = useState<string>("");
   const [error, setError] = useState<string>("");
 
   // Load from localStorage only once
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedList = localStorage.getItem("todoLists");
-      if (storedList) {
-        setTodoList(JSON.parse(storedList));
-      } else {
-        setTodoList([]);
-      }
+    const storedList = localStorage.getItem("todoLists");
+    if (storedList) {
+      setTodoList(JSON.parse(storedList));
+    } else {
+      setTodoList([]);
     }
   }, []);
 
