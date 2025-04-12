@@ -4,7 +4,7 @@ import { TodoList } from "../../types/types";
 
 export default function Home() {
   const [todoList, setTodoList] = useState<TodoList[]>(
-    JSON.parse(localStorage.getItem("todoLists")!)
+    JSON.parse(localStorage.getItem("todoLists")!) || []
   );
   const [newListTitle, setNewListTitle] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="mb-5  mx-auto border-2 border-gray-300 rounded-lg p-5 mt-10 shadow-md">
+      <div className="mb-5 mx-3  md:mx-auto border-2 border-gray-300 rounded-lg p-5 mt-10 shadow-md">
         <h2 className="mb-2">Add Tasks:</h2>
         <div className="flex gap-4 mb-5">
           <input
@@ -61,7 +61,7 @@ export default function Home() {
           </button>
         </div>
       </div>
-      {todoList.length > 0 ? (
+      {todoList?.length > 0 ? (
         <div className="p-3 md:p-0 my-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {todoList.map((list) => (
             <ToDoCard key={list.id} task={list} />

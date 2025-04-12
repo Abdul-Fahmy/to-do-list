@@ -100,13 +100,15 @@ export default function ToDoDetails() {
                   className="mt-2.5 flex items-center justify-between  border-b border-gray-300 pb-2 "
                 >
                   <p className="text-2xl font-semibold">{todo.text}</p>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <input
+                      className="cursor-pointer"
                       type="checkbox"
                       checked={!!todo.completed}
                       onChange={() => toggleCompleted(todo)}
                     />
                     <button
+                      className="btn bg-red-500 hover:bg-red-400"
                       onClick={() => {
                         deleteTodo(todo.id);
                       }}
