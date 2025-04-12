@@ -11,13 +11,6 @@ export default function ToDoDetails() {
   const { id } = useParams();
 
   useEffect(() => {
-    const storedList = localStorage.getItem("todoLists");
-    if (storedList) {
-      setTodoList(JSON.parse(storedList));
-    }
-  }, []);
-
-  useEffect(() => {
     localStorage.setItem("todoLists", JSON.stringify(todoList));
   }, [todoList]);
 
@@ -98,7 +91,7 @@ export default function ToDoDetails() {
             Add
           </button>
         </div>
-        {taskDetails!.todos.length > 0 ? (
+        {taskDetails && taskDetails.todos.length > 0 ? (
           <>
             {taskDetails!.todos.map((todo: TodoItem) => {
               return (
